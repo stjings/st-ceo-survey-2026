@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 리더십 설문 - 진광식</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+    :root { --primary: #2c3e50; --secondary: #3498db; --accent: #e74c3c; --bg-light: #ffffff; --bg-dark: #1a1a1a; --text-light: #2c3e50; --text-dark: #e0e0e0; --border-light: #e0e0e0; --border-dark: #404040; --sidebar-light: #f8f9fa; --sidebar-dark: #252525; } 
+    * { margin: 0; padding: 0; box-sizing: border-box; } 
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", sans-serif; line-height: 1.8; color: var(--text-light); background: var(--bg-light); font-size: 17px; transition: background 0.3s, color 0.3s; } 
+    body.dark { background: var(--bg-dark); color: var(--text-dark); } 
+    /* 헤더 */
+    header { background: var(--bg-light); border-bottom: 1px solid var(--border-light); padding: 30px 0; position: sticky; top: 0; z-index: 100; transition: all 0.3s ease; } 
+    body.dark header { background: var(--bg-dark); border-bottom-color: var(--border-dark); } 
+    .header-content { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; } 
+    .header-left h1 { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: 8px; } 
+    body.dark .header-left h1 { color: var(--text-dark); } 
+    .header-left p { font-size: 16px; color: #7f8c8d; } 
+    .header-right { display: flex; align-items: center; gap: 15px; } 
+    .submit-date { font-size: 15px; color: #7f8c8d; font-family: 'Courier New', monospace; } 
+    .dark-mode-toggle { background: var(--secondary); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 24px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; } 
+    .dark-mode-toggle:hover { transform: scale(1.1); box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3); } 
+    /* 메인 레이아웃 */
+    .main-container { max-width: 1400px; margin: 0 auto; padding: 40px; display: grid; grid-template-columns: 280px 1fr; gap: 40px; } 
+    /* 사이드바 목차 */
+    .sidebar { position: sticky; top: 150px; height: fit-content; background: var(--sidebar-light); border-radius: 15px; padding: 25px; border: 1px solid var(--border-light); } 
+    body.dark .sidebar { background: var(--sidebar-dark); border-color: var(--border-dark); } 
+    .sidebar h2 { font-size: 18px; margin-bottom: 20px; color: var(--primary); } 
+    body.dark .sidebar h2 { color: var(--text-dark); } 
+    .toc { list-style: none; } 
+    .toc li { margin-bottom: 12px; } 
+    .toc a { color: #7f8c8d; text-decoration: none; font-size: 15px; transition: all 0.2s; display: block; padding: 8px 12px; border-radius: 8px; } 
+    .toc a:hover { color: var(--secondary); background: rgba(52, 152, 219, 0.1); transform: translateX(5px); } 
+    .toc a.active { color: var(--secondary); font-weight: 600; background: rgba(52, 152, 219, 0.1); } 
+    /* 진행률 바 */
+    .progress-container { margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border-light); } 
+    body.dark .progress-container { border-top-color: var(--border-dark); } 
+    .progress-label { font-size: 13px; color: #7f8c8d; margin-bottom: 8px; display: flex; justify-content: space-between; } 
+    .progress-bar { height: 6px; background: var(--border-light); border-radius: 10px; overflow: hidden; } 
+    body.dark .progress-bar { background: var(--border-dark); } 
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--secondary), #9b59b6); width: 0%; transition: width 0.3s; } 
+    /* 본문 */
+    .content { max-width: 900px; } 
+    section { margin-bottom: 60px; opacity: 0; transform: translateY(20px); animation: fadeInUp 0.6s forwards; } 
+    section:nth-child(1) { animation-delay: 0.1s; } 
+    section:nth-child(2) { animation-delay: 0.2s; } 
+    section:nth-child(3) { animation-delay: 0.3s; } 
+    section:nth-child(4) { animation-delay: 0.4s; } 
+    section:nth-child(5) { animation-delay: 0.5s; } 
+    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } 
+    }
+    .section-title { font-size: 26px; font-weight: 700; color: var(--primary); margin-bottom: 30px; padding-bottom: 15px; border-bottom: 3px solid var(--secondary); } 
+    body.dark .section-title { color: var(--text-dark); } 
+    .answer-item { margin-bottom: 35px; background: var(--sidebar-light); padding: 25px; border-radius: 12px; border-left: 4px solid var(--secondary); transition: all 0.3s; } 
+    body.dark .answer-item { background: var(--sidebar-dark); } 
+    .answer-item:hover { box-shadow: 0 5px 20px rgba(0,0,0,0.08); transform: translateX(5px); } 
+    .answer-title { font-size: 20px; font-weight: 600; color: var(--primary); margin-bottom: 15px; } 
+    body.dark .answer-title { color: var(--text-dark); } 
+    .answer-content { font-size: 17px; line-height: 1.9; color: #555; } 
+    body.dark .answer-content { color: #b0b0b0; } 
+    .answer-content p { margin-bottom: 12px; } 
+    /* 효과 박스 */
+    .effect-box { background: rgba(52, 152, 219, 0.05); border-left: 3px solid var(--secondary); padding: 15px 20px; margin-top: 15px; border-radius: 8px; } 
+    body.dark .effect-box { background: rgba(52, 152, 219, 0.1); } 
+    .effect-box strong { color: var(--secondary); display: block; margin-bottom: 8px; } 
+    .effect-box ul { margin-left: 20px; color: #666; } 
+    body.dark .effect-box ul { color: #999; } 
+    .effect-box li { margin-bottom: 5px; } 
+    /* 구분선 */
+    .divider { height: 2px; background: linear-gradient(90deg, var(--secondary), transparent); margin: 50px 0; } 
+    /* 푸터 */
+    footer { background: var(--sidebar-light); border-top: 1px solid var(--border-light); padding: 30px; text-align: center; color: #7f8c8d; font-size: 15px; } 
+    body.dark footer { background: var(--sidebar-dark); border-top-color: var(--border-dark); } 
+    /* 반응형 */
+    @media (max-width: 1024px){
+    .main-container { grid-template-columns: 1fr; padding: 20px; } 
+    .sidebar { position: static; margin-bottom: 30px; } 
+    .header-content { flex-direction: column; gap: 20px; text-align: center; } 
+    }
+    @media (max-width: 768px) { body { font-size: 16px; } 
+    .header-content { padding: 0 20px; } 
+    .header-left h1 { font-size: 24px; } 
+    .section-title { font-size: 22px; } 
+    .answer-title { font-size: 18px; } 
+    .answer-content { font-size: 16px; } 
+    }
+    /* 인쇄 스타일 */
+    @media print { body { background: white; color: black; } 
+    .dark-mode-toggle,
+    .sidebar { display: none; } 
+    .main-container { grid-template-columns: 1fr; } 
+    section { page-break-inside: avoid; } 
+    }
+    /* 헤더 - 기존 코드에 추가 */
+    header { background: var(--bg-light); border-bottom: 1px solid var(--border-light); padding: 30px 0; position: sticky; top: 0; z-index: 100; transition: all 0.3s ease; /* 이 부분 수정 */}
+    /* 스크롤 시 얇아진 헤더 스타일 */
+    header.scrolled { padding: 15px 0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); } 
+    body.dark header.scrolled { box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); } 
+    /* 스크롤 시 부제목 숨김 */
+    header.scrolled .header-left p { opacity: 0; max-height: 0; margin: 0; overflow: hidden; transition: all 0.3s ease; } 
+    /* 부제목에 transition 추가 */
+    .header-left p { font-size: 16px; color: #7f8c8d; transition: all 0.3s ease; overflow: hidden; } 
+    /* 스크롤 시 오른쪽 영역 전체 숨김 (제출일 + 다크모드) */
+    header.scrolled .header-right { opacity: 0; max-width: 0; max-height: 0; overflow: hidden; margin: 0; padding: 0; gap: 0; transition: all 0.3s ease; } 
+    /* 오른쪽 영역에 transition 추가 */
+    .header-right { display: flex; align-items: center; gap: 15px; transition: all 0.3s ease; } 
+    /* 스크롤 시 제목 크기 줄이기 (선택사항) */
+    header.scrolled .header-left h1 { font-size: 22px; margin-bottom: 0; } 
+    .header-left h1 { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: 8px; transition: all 0.3s ease; } 
+</style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <h1>📋 2026년 리더십 설문</h1>
+                <p>사업총괄 서비스기획본부 Tech개발 1부문 개발2팀 팀장 진광식</p>
+            </div>
+            <div class="header-right">
+                <span class="submit-date">제출: 2026.01.10</span>
+                <button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="다크모드 전환">
+                    <span id="modeIcon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- 메인 컨테이너 -->
+    <div class="main-container">
+        <!-- 사이드바 목차 -->
+        <aside class="sidebar">
+            <h2>📑 목차</h2>
+            <ul class="toc">
+                <li><a href="#section1">1. 대표이사가 해야할 일</a></li>
+                <li><a href="#section2">2. 팀장이 해야할 일</a></li>
+                <li><a href="#section3">3. 2025년 우리 팀 성과</a></li>
+                <li><a href="#section4">4. 팀장으로서 부족한 부분</a></li>
+                <li><a href="#section5">5. 더 좋은 성과를 위한 제안</a></li>
+            </ul>
+            
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>읽기 진행률</span>
+                    <span id="progressPercent">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- 본문 -->
+        <main class="content">
+            <!-- 섹션 1 -->
+            <section id="section1">
+                <h2 class="section-title">1. 본인이 생각하는 대표이사가 해야할 일은 무엇이라고 생각하십니까?</h2>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">① 중·장기적 비전과 방향성을 명확히 제시하는 역할</h3>
+                    <div class="answer-content">
+                        <p>대표이사께서 회사가 나아가야 할 중·장기적인 비전과 방향성을 명확히 제시해 주시는 것이 가장 중요하다고 생각합니다.</p>
+                        <p>현재 집중해야 할 과제와 미래를 위해 준비해야 할 부분이 분명해질수록, 구성원들은 불필요한 고민 없이 자신의 역할에 집중할 수 있습니다. 예를 들어, 단기 매출 확대가 우선인지, 아니면 서비스 안정화나 구조 개선이 우선인지가 명확해질 경우 각 팀은 그에 맞는 판단과 선택을 빠르게 할 수 있다고 생각합니다.</p>
+                    </div>
+                </div>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">② 실행력을 높이기 위한 자원과 환경을 설계하는 역할</h3>
+                    <div class="answer-content">
+                        <p>무엇을 해야 하는지에 대한 목표 제시뿐만 아니라, 그 목표를 어떻게 실행할 수 있을지에 대한 방향과 지원도 대표이사의 중요한 역할이라고 생각합니다.</p>
+                        <p>현장에서는 명확한 목표가 있더라도, 인력·일정·우선순위 조정이 뒷받침되지 않으면 실행 과정에서 많은 어려움이 발생합니다. 목표 달성을 위한 환경을 함께 만들어 주신다면, 실무에서의 실행력과 결과는 훨씬 높아질 것이라 생각합니다.</p>
+                    </div>
+                </div>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">③ 핵심 인재가 성장할 수 있는 구조(평가·보상·권한)를 설계하는 역할</h3>
+                    <div class="answer-content">
+                        <p>성과를 내는 인재가 정당하게 평가받고 성장할 수 있는 구조를 설계하고 유지하는 것 역시 대표이사의 중요한 역할이라고 생각합니다.</p>
+                        <p>현장에서는 누가 어떤 기여를 했는지가 비교적 명확하게 보이지만, 그 성과가 평가와 보상으로 어떻게 연결되는지에 대한 기준이 명확하지 않으면 구성원 입장에서는 동기부여가 떨어질 수 있습니다. 명확한 기준과 일관된 메시지가 있다면, 구성원들은 더욱 책임감 있게 일하고 장기적인 성장을 기대할 수 있을 것이라 생각합니다.</p>
+                    </div>
+                </div>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">④ 숫자 너머의 과정을 함께 바라보는 리더십</h3>
+                    <div class="answer-content">
+                        <p>매출이나 성장률과 같은 수치적 성과도 중요하지만, 그 성과가 만들어지는 과정 또한 함께 바라봐 주시는 리더십이 필요하다고 생각합니다.</p>
+                        <p>성수기 동안의 주말 작업, 야간 긴급 대응, 여러 프로젝트를 동시에 진행하며 발생하는 보이지 않는 노력들이 쌓여 결과로 이어지는 경우가 많습니다. 이러한 과정과 노력을 함께 인지하고 공감해 주신다면, 구성원들은 단기 성과를 넘어 장기적으로 더 큰 성과를 만들어 갈 수 있다고 생각합니다.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="divider"></div>
+            
+            <!-- 섹션 2 -->
+            <section id="section2">
+                <h2 class="section-title">2. 본인이 생각하는 팀장이 해야할 일은 무엇이라고 생각하십니까?</h2>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">① 명확한 업무 분배와 일정 관리</h3>
+                        <p>팀원 개개인의 역량, 현재 업무 부담, 그리고 향후 성장 방향을 고려하여 적절하게 업무를 분배하고, 프로젝트 일정이 무리 없이 진행될 수 있도록 사전에 파악하고 조정하는 것이 팀장의 가장 기본적인 역할이라고 생각합니다.</p>
+                        <p>단순히 일을 나누는 것을 넘어, 특정 인력에게 업무가 과도하게 집중되지 않는지 지속적으로 점검하고, 일정 지연이 예상될 경우 미리 범위나 우선순위를 조정하는 것이 중요하다고 생각합니다.</p>
+                    <div class="answer-content">
+                    </div>
+                </div>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">② 기술적 의사결정과 방향 제시</h3>
+                    <div class="answer-content">
+                        <p>팀장은 기술적 의사결정 과정에서 각 선택지의 장단점과 리스크를 충분히 검토하고, 팀원들이 이해할 수 있는 명확한 방향을 제시해야 한다고 생각합니다.</p>
+                        <p>“가능하다, 불가능하다”라는 판단에 그치기보다, “이 방식은 이런 리스크가 있으니 이런 방향으로 접근하는 것이 현실적이다”와 같이 구체적인 가이드를 제시함으로써 팀원들이 안정적으로 개발에 집중할 수 있도록 돕는 역할이 필요하다고 생각합니다.</p>
+                    </div>
+                </div>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">③ 타부서와의 원활한 소통 및 조율</h3>
+                    <div class="answer-content">
+                        <p>백엔드 개발팀은 기획, 디자인, 사업, 인프라, 마케팅 등 다양한 부서와 협업하는 경우가 많기 때문에, 팀장은 각 부서의 상황과 제약을 이해하고 현실적인 일정과 범위를 조율하는 역할을 수행해야 한다고 생각합니다.</p>
+                        <p>우리 팀의 입장만을 고집하기보다, “전체 프로젝트가 원활히 진행되기 위해 우리가 먼저 조율할 수 있는 부분은 무엇인지”를 고민하고, 선제적으로 소통하는 자세가 중요하다고 생각합니다.</p>
+                    </div>
+                </div>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">④ 팀원의 성장과 지속 가능한 업무 환경 조성</h3>
+                    <div class="answer-content">
+                        <p>팀장은 팀원들이 기술적으로 성장할 수 있는 기회를 제공하는 동시에, 과도한 야근이나 주말 근무 없이 장기적으로 지속 가능한 업무 환경을 만드는 역할도 함께 맡고 있다고 생각합니다.</p>
+                        <p>업무 강도가 높아질 수밖에 없는 시기에는 집중해서 대응하되, 이후에는 의도적으로 완급을 조절하여 팀원들이 지치지 않고 꾸준히 성과를 낼 수 있도록 관리하는 것이 중요하다고 생각합니다.</p>
+                    </div>
+                </div>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">⑤ 문제의 조기 발견 및 적시 대응</h3>
+                    <div class="answer-content">
+                        <p>일정 지연, 리소스 부족, 기술적 한계와 같은 문제는 현장에서 먼저 감지되는 경우가 많기 때문에, 팀장은 이러한 신호를 조기에 인지하고 대응하는 역할이 필요하다고 생각합니다.</p>
+                        <p>팀 내에서 해결 가능한 문제는 책임지고 처리하되, 상위 의사결정이 필요한 사안은 숨기지 않고 빠르게 공유하여 함께 해결 방안을 찾는 것이 중요하다고 생각합니다. 좋은 소식뿐만 아니라 어려운 상황도 함께 공유하는 것이 조직 전체에 도움이 된다고 생각합니다.</p>
+                    </div>
+                </div>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">⑥ 보안 및 품질에 대한 책임</h3>
+                    <div class="answer-content">
+                        <p>팀장은 개발 속도뿐만 아니라 보안, 성능, 안정성, 유지보수성을 포함한 서비스 품질 전반에 대해 책임을 가져야 한다고 생각합니다.</p>
+                        <p>당장 눈에 띄는 성과로 드러나지 않더라도, 장애 예방이나 기술 부채 관리와 같은 부분은 장기적으로 팀과 회사의 신뢰를 지키는 중요한 요소이기 때문에 지속적으로 챙겨야 할 역할이라고 생각합니다.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="divider"></div>
+            
+            <!-- 섹션 3 -->
+            <section id="section3">
+                <h2 class="section-title">3. 2025년에 본인의 부서에서 가장 잘한 성과(일)은 무엇입니까?</h2>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">① 선개발 및 모듈화를 통한 1일 배포 체계 구축</h3>
+                    <div class="answer-content">
+                        <p>여름·겨울 성수기마다 반복적으로 발생하던 페이지 개발 업무를 선개발 및 모듈화 방식으로 전환하여, 기존 2~3일 소요되던 배포 프로세스를 1일 내 배포가 가능한 구조로 개선했습니다.</p>
+                        <p>이를 통해 유관 부서의 일정 변경이나 급박한 요청에도 보다 유연하게 대응할 수 있었으며, 데드라인을 준수하면서도 개발 품질을 안정적으로 유지할 수 있었습니다.</p>
+                        <p>해당 구조를 기반으로 프리패스, 시즌 이벤트 등 경쟁사 대응과 매출 확대가 중요한 주요 프로젝트를 신속하게 오픈할 수 있었다는 점에서 의미 있는 성과라고 생각합니다.</p>
+                    </div>
+                </div>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">② 운영 업무 자동화를 통한 사업부 생산성 향상</h3>
+                    <div class="answer-content">
+                        <p>온·오프라인 사업부에서 매일 반복적으로 수행하던 상품 판매 페이지 관리, 강좌·교재 순위 조정 등의 수작업 업무를 자동화하여, 약 1시간 이상 소요되던 작업을 10분 이내로 처리할 수 있도록 개선했습니다.</p>
+                        <p>이로 인해 사업부에서는 단순 운영 업무에 소요되던 시간을 줄이고, 기획 및 마케팅과 같은 핵심 업무에 더 집중할 수 있는 환경이 마련되었습니다.</p>
+                        <p>개별 업무 개선을 넘어, 전사적인 업무 효율과 생산성 향상에 기여한 성과라고 생각합니다.</p>
+                    </div>
+                </div>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">③ 전사 Tech실 이슈 전반을 책임지는 커뮤니케이션 창구 역할</h3>
+                    <div class="answer-content">
+                        <p>Tech실 내에서도 커뮤니케이션 빈도가 가장 높은 팀으로서, 기술적 이슈나 긴급 장애 발생 시 가장 먼저 상황을 파악하고 실시간으로 투입되어 문제를 해결하거나, 필요한 경우 타 개발팀과 빠르게 연결하는 허브 역할을 수행했습니다.</p>
+                        <p>유관 부서에서 기술적인 어려움이나 긴급한 요청이 있을 때, 가능한 한 즉각적으로 응대하고 이해하기 쉬운 설명과 함께 해결 방향을 안내함으로써 협업 과정에서의 부담을 줄이고자 노력했습니다.</p>
+                        <p>특히 성수기 기간 동안에는 다수의 이슈와 동시다발적인 기술 요청이 발생했으나, 최전선에서 빠르게 대응함으로써 서비스 안정성과 현장에서 신뢰할 수 있는 백엔드 지원 창구 역할을 수행했다고 생각합니다.</p>
+                        <p>이러한 대응을 통해 이슈를 신속하게 해결할 수 있었고, 결과적으로 고객 만족도 유지와 사업 연속성 확보에 기여할 수 있었다고 생각합니다.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="divider"></div>
+            
+            <!-- 섹션 4 -->
+            <section id="section4">
+                <h2 class="section-title">4. 팀장 역할을 더 잘 수행하기 위해 갖춰야 할 부족한 부분은 무엇입니까?</h2>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">① 팀원 성장을 위한 체계적인 육성 계획 수립</h3>
+                    <div class="answer-content">
+                        <p>성수기 대응과 다수 프로젝트 일정 관리에 집중하다 보니, 팀원 개개인의 중·장기적인 성장 방향을 체계적으로 설계하고 실행하는 데에는 다소 부족한 부분이 있었다고 생각합니다.</p>
+                        <p>현재는 업무 수행 과정에서의 피드백 위주로 소통이 이루어지고 있으나, 앞으로는 정기적인 1:1 면담을 통해 각 팀원의 강점과 관심 분야를 보다 명확히 파악하고, 개인별 성장 목표를 함께 설정해 나가고자 합니다.</p>
+                        <p>또한 업무와 연계된 학습 기회나 역할 확장을 통해, 단기 성과뿐만 아니라 장기적인 역량 강화로 이어질 수 있도록 개선해 나갈 계획입니다.</p>
+                    </div>
+                </div>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">② 기술 부채 관리 및 중·장기 기술 전략 수립 역량</h3>
+                    <div class="answer-content">
+                        <p>당장의 프로젝트 대응과 운영 안정화에 우선순위를 두다 보니, UI/UX 개선, 어드민 효율화, 보안 강화와 같은 중·장기 기술 과제를 충분히 분석하고 전략적으로 제안하는 데에는 한계가 있었다고 생각합니다.</p>
+                        <p>앞으로는 단순히 “필요하다”는 인식에 그치지 않고, 해당 과제들이</p>
+                        <p>언제 추진하는 것이 적절한지,</p>
+                        <p>어떤 방식으로 진행할 수 있는지,</p>
+                        <p>필요한 비용과 기대 효과는 무엇인지</p>
+                        <p>를 보다 구체적으로 정리하여 단계적인 개선안을 제시하고자 합니다.</p>
+                        <p>이를 통해 단기 대응 중심의 운영에서 벗어나, 지속 가능하고 안정적인 기술 구조를 만들어 가는 데 기여하고 싶습니다.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="divider"></div>
+            
+            <!-- 섹션 5 -->
+            <section id="section5">
+                <h2 class="section-title">5. 우리 팀이 더 좋은 성과를 얻기 위해서는 무엇이 더 필요하다고 생각하나요?</h2>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">① 웹 기획 역량 보강을 통한 협업 효율 개선</h3>
+                    <div class="answer-content">
+                        <p>현재 서비스 기획팀은 주요 프로젝트와 사이트 개편 중심으로 운영되고 있어, 전체 운영 기획 업무 중 상당 부분이 콘텐츠 운영팀에서 처리되고 있는 상황입니다.</p>
+                        <p>콘텐츠 기획자분들께서 여러 업무를 동시에 담당하다 보니, 개발 영향도 파악이나 긴급한 우선순위 조정에 어려움이 발생하는 경우가 종종 있다고 느끼고 있습니다.</p>
+                        <p>콘텐츠 기획팀의 웹 기획 역량을 점진적으로 확대하거나, 서비스 기획팀을 확장하여 운영 기획 전담 역할이 명확하게 지정된다면 기획 단계에서의 정합성이 높아지고, 개발 단계에서의 반복 커뮤니케이션을 줄일 수 있을 것이라 생각합니다.</p>
+                        <div class="effect-box">
+                            <strong>기대 효과</strong>
+                            <ul>
+                                <li>개발팀의 반복 설명 및 수정 대응 시간 감소</li>
+                                <li>프로젝트 일정 예측 정확도 향상</li>
+                                <li>기획팀·개발팀 모두의 업무 효율 개선</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">② 안정화 기간 확보를 통한 장기 경쟁력 강화</h3>
+                    <div class="answer-content">
+                        <p>성수기 집중 대응은 불가피하지만, 비수기에도 신규 업무가 주 단위로 지속 투입되면서 보안 취약점, 레거시 코드, 운영 리스크와 같은 기술 부채가 점진적으로 누적되고 있는 상황입니다.</p>
+                        <p>분기별로 1~2주 정도를 ‘신규 개발 최소화 및 시스템 안정화 집중 기간’으로 공식적으로 운영할 수 있다면, 단기적인 속도 저하보다 장기적인 안정성과 개발 생산성 측면에서 더 큰 효과를 기대할 수 있을 것이라 생각합니다.</p>
+                        <div class="effect-box">
+                            <strong>기대 효과</strong>
+                            <ul>
+                                <li>시스템 장애 및 긴급 이슈 발생 가능성 감소</li>
+                                <li>보안 사고 사전 예방 및 운영 리스크 축소</li>
+                                <li>이후 신규 개발 시 속도 및 품질 동시 개선</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">③ 신규 개발자 충원을 통한 팀 역량 확장과 지속 가능성 확보</h3>
+                    <div class="answer-content">
+                        <p>현재 개발2팀은 기술적 경험과 운영 노하우가 충분히 축적되어 있어, 신규 인력을 안정적으로 육성할 수 있는 환경이 갖춰져 있다고 생각합니다.</p>
+                        <p>주니어 개발자 1~2명을 충원하여 기존 팀원은 핵심 개발과 구조 설계, 코드 리뷰 및 육성에 집중하고, 신규 인력은 반복 업무와 학습을 병행하는 구조를 만든다면 중·장기적으로 팀 전체 역량이 자연스럽게 확장될 수 있을 것이라 생각합니다.</p>
+                        <p>만약 정규 채용이 당장 어렵다면, 성수기 한시적인 외주나 프리랜서 활용 또한 현실적인 대안이 될 수 있을 것이라 판단합니다.</p>
+                        <div class="effect-box">
+                            <strong>기대 효과</strong>
+                            <ul>
+                                <li>단기 비용 대비 중·장기 생산성 증가 (3~6개월 내 독립 업무 가능)</li>
+                                <li>반복 업무 부담 완화로 핵심 인력의 집중도 향상</li>
+                                <li>팀 전체 개발 처리량의 점진적 증가</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="answer-item">
+                    <h3 class="answer-title">④ 선택적 재택근무를 통한 개발 효율 및 긴급 대응력 강화</h3>
+                    <div class="answer-content">
+                        <p>개발 업무는 형상 관리 시스템(Git)을 통해 업무 내역이 투명하게 관리되며, VPN 환경을 통해 사내 시스템 접근이 가능해 재택근무와의 적합도가 높은 편이라고 생각합니다.</p>
+                        <p>팀장 재량 하에 주 1~2회 정도 선택적 재택근무를 허용할 경우, 실제 업무 효율과 긴급 대응력 측면에서 긍정적인 효과를 기대할 수 있습니다.</p>
+                        
+                        <div class="effect-box">
+                            <strong>업무 효율 측면</strong>
+                            <ul>
+                                <li>출퇴근 시간 감소로 집중 업무 시간 증가</li>
+                                <li>기술적 고민이 필요한 긴 호흡의 장시간 작업의 몰입도 향상</li>
+                                <li>실제 재택 근무 시 처리 업무량 증가 경험 (2건 → 3 ~ 4건)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="effect-box">
+                            <strong>긴급 대응 측면</strong>
+                            <ul>
+                                <li>업무 시간 외(출퇴근 전,후) 긴급 이슈 발생 시 즉각적인 대응 가능</li>
+                                <li>야간 광클 배포, 라이브 모니터링 시 개발자 피로도 감소</li>
+                                <li>급 건 업무 진행 시(T-Pass, 7급, 고용노동직 추가 채용 프리패스 및 PR 페이지) 재택으로 장시간 집중 작업 가능</li>
+                                <li>주말 출근 감소</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="effect-box">
+                            <strong>협업 측면</strong>
+                            <ul>
+                                <li>Zoom과 Slack을 활용한 비대면 협업 환경 이미 정착</li>
+                                <li>Zoom 화상 회의와 화면 공유를 통해 기획, 어드민, 데이터 등을 실시간으로 공유 가능</li>
+                                <li>Slack을 활용한 즉각적인 커뮤니케이션 및 화면 공유 기반 코드 리뷰</li>
+                                <li>전사 재택 근무 기간 동안에도 협업에 큰 문제 없이 오히려 논의 집중도와 의사결정 속도 향상 경험</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="effect-box">
+                            <strong>회사 측면</strong>
+                            <ul>
+                                <li>주말·야간 출근 감소로 대체 휴무 발생을 줄여 인사 관리 및 운영 부담 완화</li>
+                                <li>재택 근무 시 출퇴근 피로가 없어 연장 근무 및 긴급 대응에 대한 자발적 참여 가능</li>
+                                <li>사무실 상주 인원 분산으로 공간 운영 및 관리 비용 부담 완화</li>
+                            </ul>
+                        </div>
+                        
+                        <p style="margin-top: 20px;">재택근무는 근무 시간을 줄이기 위한 제도가 아니라, 회사가 개발팀의 집중 가능 시간을 더 효율적으로 활용할 수 있는 방식이라고 생각합니다.</p>
+                        <p>이미 검증된 협업 체계를 기반으로 점진적으로 적용 범위를 검토해 나간다면, 조직 생산성과 운영 안정성 모두에 긍정적인 효과를 가져올 수 있을 것이라 생각합니다.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- 푸터 -->
+    <footer>
+        <p>작성: 사업총괄 서비스기획본부 Tech개발 1부문 개발2팀 팀장 진광식 | 작성일: 2026년 1월 10일</p>
+        <p style="margin-top: 10px; font-size: 13px;">비공개 문서 - 무단 복제 및 배포 금지</p>
+    </footer>
+    
+    <script>
+        const header = document.querySelector('header');
+        let isScrolled = false;
+
+        const ADD_AT = 150;
+        const REMOVE_AT = 80;
+
+        let ticking = false;
+
+        function onScroll() {
+        if (ticking) return;
+        ticking = true;
+
+        requestAnimationFrame(() => {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+            if (!isScrolled && scrollTop > ADD_AT) {
+            header.classList.add('scrolled');
+            isScrolled = true;
+            } else if (isScrolled && scrollTop <= REMOVE_AT) {
+            header.classList.remove('scrolled');
+            isScrolled = false;
+            }
+
+            ticking = false;
+        });
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+
+        // 다크모드 토글
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+            const icon = document.getElementById('modeIcon');
+            const isDark = document.body.classList.contains('dark');
+            icon.textContent = isDark ? '☀️' : '🌙';
+            localStorage.setItem('darkMode', isDark);
+        }
+        
+        // 다크모드 설정 불러오기
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark');
+            document.getElementById('modeIcon').textContent = '☀️';
+        }
+        
+        // 스크롤 진행률 및 목차 활성화
+        function updateProgress() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / documentHeight) * 100;
+            
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressPercent').textContent = Math.round(progress) + '%';
+            
+            // 목차 활성화
+            const sections = document.querySelectorAll('section');
+            const tocLinks = document.querySelectorAll('.toc a');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 200;
+                if (scrolled >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateProgress);
+        window.addEventListener('load', updateProgress);
+        
+        // 부드러운 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
